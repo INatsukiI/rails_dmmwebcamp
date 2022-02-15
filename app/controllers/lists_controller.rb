@@ -3,15 +3,16 @@ class ListsController < ApplicationController
     #VIewへ渡すためのインスタンス変数に空のModelオブジェクトを生成する。
     @list = List.new
   end
-  
-  
+
+
   def create
     list = List.new(list_params)
     list.save
     redirect_to '/top'
   end
-  
+
   def index
+    @lists = List.all
   end
 
   def show
@@ -19,7 +20,7 @@ class ListsController < ApplicationController
 
   def edit
   end
-  
+
   private
   #　ストロングパラメータ
   def list_params
